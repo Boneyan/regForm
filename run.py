@@ -4,4 +4,4 @@
 from web import app
 
 
-app.run(threaded=True)
+app.run()
