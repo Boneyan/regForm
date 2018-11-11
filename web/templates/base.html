@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+</head>
+<body>
+  <header>
+    <div class="menu inline-block">
+      <a href="{{url_for('main')}}"><div class="menu-btn btn inline-block">Главная</div></a>
+    </div>
+    <div class="user-block">
+      {% if user %}
+        <a href="{{url_for('profile')}}"><div class="btn inline-block">{{ user.name }}</div></a>
+        <a href="{{url_for('logout')}}"><div class="btn btn-imp inline-block">Выйти</div></a>
+      {%else%}
+        <a href="{{url_for('registration')}}"><div class="btn btn-imp inline-block">Зарегистрироваться</div></a>
+        <a href="{{url_for('login')}}"><div class="btn btn-imp inline-block">Войти</div></a>
+      {%endif%}
+    </div>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

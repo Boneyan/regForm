@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="middle">
+  <h1 class="mid-txt">Вход</h1>
+  <form action="" method="post" class="inline-block">
+          {{form.hidden_tag()}}
+          <div>{{ form.login.label}}</div>
+          <div>{{ form.login }}</div>
+          {% if form.login.errors %}
+              {% for error in form.login.errors %}
+                  <div class="error">{{ error }}</div>
+              {% endfor %}
+          {% endif %}
+          <div>{{ form.password.label}}</div>
+          <div>{{ form.password }}</div>
+          {% if form.password.errors %}
+              {% for error in form.password.errors %}
+                  <div class="error">{{ error }}</div>
+              {% endfor %}
+          {% endif %}
+         {{ form.submit }}
+  </form>
+  <div class="mid-txt">
+    <a href="{{url_for('registration')}}" class="link">
+      <i>Нет аккаунта?</i>
+    </a>
+  </div>
+</div>
+{% endblock %}

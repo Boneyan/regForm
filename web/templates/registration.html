@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="middle">
+  <h1 class="mid-txt">Регистрация</h1>
+  <form action="" method="post" class="inline-block">
+        {{form.hidden_tag()}}
+        <div>{{ form.login.label}}</div>
+        <div>{{ form.login }}</div>
+        {% if form.login.errors %}
+            {% for error in form.login.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        <div>{{ form.name.label}}</div>
+        <div>{{ form.name }}</div>
+        {% if form.name.errors %}
+            {% for error in form.name.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        <div>{{ form.password.label}}</div>
+        <div>{{ form.password }}</div>
+        {% if form.password.errors %}
+            {% for error in form.password.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        <div>{{ form.confirm.label}}</div>
+        <div>{{ form.confirm }}</div>
+        {% if form.confirm.errors %}
+            {% for error in form.confirm.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+       {{ form.submit }}
+  </form>
+</div>
+{% endblock %}
